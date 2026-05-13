@@ -1,82 +1,51 @@
-# Claudicted
+# Skyfire Homepage Prototype
 
-**The gallery for vibe coders.** Share what you built with Claude. Discover what's possible. Find your next prompt obsession.
+A self-contained, single-file marketing prototype for **Skyfire** — verified identity and payment credentials for AI agents.
 
-A showcase of interactive web apps built entirely through conversational prompting with Claude — no frameworks, no build steps, just vanilla HTML/CSS/JS.
+Modeled on the production design system at [skyfire.xyz](https://skyfire.xyz): Geist + Inter typography, ink/red/teal/orange palette, pill buttons, and the same proportions used on the live site.
 
-## Live Demo
+## Run it
 
-[claudicted.com](https://claudicted.com)
+The page is one file with everything inlined (assets, icons, animations). To preview:
 
-## Interactive Apps
+- **Just open it**: double-click `index.html`. It renders identically from `file://` — brand SVGs and Material Symbols icons are embedded as inline data; only Google Fonts loads from the network.
+- **Or serve it locally**: any static server works. Examples:
+  ```bash
+  npx serve .
+  # or
+  python3 -m http.server 8000
+  ```
 
-Every card in the gallery opens a fully functional app:
+## What's on the page
 
-| App | Description |
-|-----|-------------|
-| 🧠 **Synapse Analytics** | Full SaaS dashboard with multi-view navigation, KPI cards, line/bar/donut charts, and data tables |
-| 🐍 **Snake Game** | Multiplayer snake with AI bot opponents, leaderboard, speed controls, and canvas rendering |
-| 💸 **Budget Tracker** | Monthly budget manager with donut charts, category tracking, transaction logging, and spend modals |
-| 🍳 **PantryAI** | Smart recipe finder — toggle pantry ingredients, get matched recipes with step-by-step instructions |
-| 🌊 **Portfolio** | Animated designer portfolio with project cards, skill bars, section navigation, and staggered transitions |
-| ✍️ **WriteFlow** | Real-time writing coach with Clarity, Flow, and Vibe Score™ gauges, tone detection, and suggestions |
-| 🔥 **Streakr** | Habit tracker with streak detection, contribution calendar, shame mode roasts, and fire celebrations |
-| 🪐 **Cosmos** | Interactive solar system with canvas-rendered planets at real orbital ratios, speed/zoom controls |
-| ✅ **done.** | The todo app that judges you — category tabs, shame mode, snarky toasts, and confetti on completion |
+- **Sticky nav** — Skyfire wordmark + nav items, "Launch Skyfire" CTA right-aligned, matching the live site's header dimensions
+- **Hero** — "Access. Identity. Checkout. The Agent Trust Stack." with a stacked SVG diagram on the right:
+  - Skyfire (Agent Wallet) → Agent → Security bar → Websites / Login / Checkout
+  - Brand partner logos scroll horizontally through the Security bar (auto, seamless loop)
+  - Material Symbols icons inside each destination (`smart_toy`, `public`, `key`, `shopping_cart`)
+  - Animated KYA token pills on every flow arrow
+- **What KYA Powers** — two-card section (Access & Login, Checkout & Payments) with an auto-scrolling chip ticker for partner names (hover to pause)
+- **Coverage band** — "Covering more than 60% of the Web" with 11 partner wordmarks in a centered 6 + 5 grid (Akamai, DataDome, Cequence, F5, Fastly, Imperva, HUMAN Security, Okta, Auth0, Ory, Forter)
+- **One unified trust stack** — three-product table (Know Your Agent, Agentic Wallet, Buy for Me)
+- **Enable Agent Access at Internet Scale** — dark card with a parallel stacked SVG diagram (User + Skyfire → Agent → Security → Websites / APIs / Agent Protocols)
+- **Live walkthrough demo** — animated 4-step pipeline (Token Request → Website Login → Checkout → Live Transaction) driving a live ledger of agent transactions
+- **Footer** — dark, three columns
 
-Every app supports **popout mode** — open in its own window with full functionality.
+## Tech notes
 
-## Project Structure
+- **One file**, no build step, no framework. Vanilla HTML + CSS + a small amount of JS for the demo animation and scroll-reveal observer.
+- **All SVGs are inlined** (either as inline `<svg>` markup or as base64 data URIs) so the file is portable and `file://` safe.
+- **Material Symbols icons** are inlined as SVG `<path>` data — no web-font dependency for the diagram icons.
+- **External dependencies**: only Google Fonts (Inter, Geist, JetBrains Mono) loaded over the network.
 
-```
-├── index.html            # HTML shell, card grid, all modal markup
-├── css/
-│   ├── main.css          # Page layout, themes, nav, cards, footer, modals
-│   ├── dashboard.css     # Synapse Analytics styles
-│   ├── snake.css         # Snake Game styles
-│   ├── budget.css        # Budget Tracker styles
-│   ├── recipe.css        # PantryAI styles
-│   ├── portfolio.css     # Portfolio styles
-│   ├── writer.css        # WriteFlow styles
-│   ├── habit.css         # Streakr styles
-│   ├── solar.css         # Cosmos styles
-│   └── todo.css          # done. styles
-├── js/
-│   ├── main.js           # Theme toggle, prompt box, toast, login, shared utils
-│   ├── dashboard.js      # Synapse Analytics logic + popout
-│   ├── snake.js          # Snake Game logic + popout
-│   ├── budget.js         # Budget Tracker logic + popout
-│   ├── recipe.js         # PantryAI logic + popout
-│   ├── portfolio.js      # Portfolio logic + popout
-│   ├── writer.js         # WriteFlow logic + popout
-│   ├── habit.js          # Streakr logic + popout
-│   ├── solar.js          # Cosmos logic + popout
-│   └── todo.js           # done. logic + popout
-└── CNAME                 # Custom domain config
-```
+## Editing
 
-## Features
+The hero copy lives in the `<header class="hero">` block. The two SVG diagrams (hero + access card) are inline — search for `class="hero-svg"` and `class="access-svg"`. Everything else is straightforward HTML.
 
-- **Dark/Light theme** toggle with CSS custom properties
-- **No build step** — pure static files, open `index.html` and go
-- **Responsive** — works on desktop and mobile
-- **Popout windows** — every app can detach into its own window
-- **Zero dependencies** — vanilla JS, no frameworks, no npm
+Coordinates in the diagrams snap to a grid: the destination columns are locked to `x = 80 / 240 / 400` in viewBox space, and arrows + KYA pills sit on the same vertical lines.
 
-## Running Locally
+## Credits
 
-Just serve the files with any static server:
+Partner brand wordmarks remain the property of their respective owners (Akamai, DataDome, Cequence, F5, Fastly, Imperva, HUMAN Security, Okta, Auth0, Ory, Forter). Use of these marks in a "supported by" / "ecosystem" placement typically requires written permission from each company before public deployment.
 
-```bash
-# Python
-python3 -m http.server 8765
-
-# Node
-npx serve .
-
-# Or just open index.html in your browser
-```
-
-## Built By
-
-**David** & **Danny** Robinson — built with vibes & [Claude](https://claude.ai)
+Material Symbols icons © Google, [Apache 2.0 licensed](https://github.com/google/material-design-icons).
