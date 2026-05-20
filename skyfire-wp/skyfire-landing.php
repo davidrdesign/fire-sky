@@ -1,3 +1,19 @@
+<?php
+/*
+ * Template Name: Skyfire Landing Page
+ * Template Post Type: page
+ *
+ * Installation:
+ *   1. Copy this file into your active theme folder (or child theme folder).
+ *   2. In WordPress Admin → Pages → Add New (or edit an existing page).
+ *   3. In the Page Attributes panel, set Template to "Skyfire Landing Page".
+ *   4. Publish or update the page.
+ *
+ * The page renders as a fully standalone full-screen experience —
+ * it does not load your theme's header or footer.
+ */
+if ( ! defined( 'ABSPATH' ) ) exit;
+?>
 <!doctype html>
 <html lang="en">
 <head>
