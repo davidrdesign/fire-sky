@@ -22,7 +22,7 @@ The page is one file with everything inlined (assets, icons, animations). To pre
 - **Hero** — "Access. Identity. Checkout. The Agent Trust Stack." with a stacked SVG diagram on the right:
   - Skyfire (Agent Wallet) → Agent → Security bar → Websites / Login / Checkout
   - Brand partner logos scroll horizontally through the Security bar (auto, seamless loop)
-  - Material Symbols icons inside each destination (`smart_toy`, `public`, `key`, `shopping_cart`)
+  - Material Symbols icons inside each destination (`auto_awesome` for Agent, `public`, `key`, `shopping_cart`)
   - Animated KYA token pills on every flow arrow
 - **What KYA Powers** — two-card section (Access & Login, Checkout & Payments) with an auto-scrolling chip ticker for partner names (hover to pause)
 - **Coverage band** — "Covering more than 60% of the Web" with 11 partner wordmarks in a centered 6 + 5 grid (Akamai, DataDome, Cequence, F5, Fastly, Imperva, HUMAN Security, Okta, Auth0, Ory, Forter)
@@ -43,6 +43,14 @@ The page is one file with everything inlined (assets, icons, animations). To pre
 The hero copy lives in the `<header class="hero">` block. The two SVG diagrams (hero + access card) are inline — search for `class="hero-svg"` and `class="access-svg"`. Everything else is straightforward HTML.
 
 Coordinates in the diagrams snap to a grid: the destination columns are locked to `x = 80 / 240 / 400` in viewBox space, and arrows + KYA pills sit on the same vertical lines.
+
+## WordPress
+
+A WordPress-ready version is included in `skyfire-wp/` and pre-packaged as `skyfire-wordpress.zip`.
+
+- `skyfire-wp/skyfire-landing.php` — standalone page template; drop into your active theme folder, then assign it to any page via Page Attributes → Template
+- `skyfire-wp/README.txt` — step-by-step installation instructions for the client
+- No plugins required. The template is fully self-contained and bypasses the theme's header and footer.
 
 ## Credits
 
